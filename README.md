@@ -18,6 +18,21 @@
 - LangChain
 
 ## Preview
+1. Query example:
+```bash
+MATCH p=()-[:IN_GENRE]->() RETURN p LIMIT 25;
+```
+
+![visualisation](https://github.com/user-attachments/assets/ff43f358-f520-47aa-b67a-dff2032e7948)
+
+2. Demo
+   
+
+
+
+https://github.com/user-attachments/assets/9a5deb13-f4cf-4f25-a8d0-aac8419d4752
+
+
 
 
 
