@@ -114,13 +114,10 @@ async function chat() {
                     (step) => step.context
                 );
                 if (contextStep) {
-                    console.log('\nContext:');
+                    console.log('\nAnswer:');
                     console.log(JSON.stringify(contextStep.context, null, 2));
                 }
             }
-
-            console.log('\nAnswer:');
-            console.log(response.result);
         } catch (error) {
             console.error('An error occurred:', error);
         }
