@@ -9,7 +9,6 @@ const username = process.env.NEO4J_USER;
 const password = process.env.NEO4J_PASSWORD;
 const openAiKey = process.env.OPENAI_API_KEY;
 
-// const password = 'neo4Jexample';
 const cypher = `
 LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/tomasonjo/blog-datasets/main/movies/movies_small.csv' AS row
 MERGE (m:Movie {movieId: toInteger(row.movieId)})
@@ -31,7 +30,6 @@ FOREACH (actor IN split(row.actors, '|') |
 
 async function importMovies() {
     try {
-        //driver = neo4j.driver(uri, neo4j.auth.basic(user, password));
         var driver = neo4j.driver(url, neo4j.auth.basic(username, password));
         const serverInfo = await driver.getServerInfo();
         const result = await session.run(cypher);
@@ -40,10 +38,7 @@ async function importMovies() {
         console.log(serverInfo);
     } catch (err) {
         console.log(`Connection error\n${err}\nCause: ${err.cause}`);
-    } finally {
-        // await session.close();
     }
-    // await driver.close();
 }
 
 importMovies();
